@@ -7,7 +7,8 @@ export const Header = tw.header`
   backdrop-blur-lg]
   border
   border-white/5
-  px-2.5
+  md:px-9
+  px-3
   py-7
 `;
 
@@ -30,6 +31,6 @@ export const TitleChat = tw.h2`
 export const Status = tw.p`
   text-xs
   text-start
-  text-cyan-400
+  text-sw-blue
   font-medium
 `;

@@ -20,8 +20,8 @@ export const RoundedBlur = tw.span`
   sm:w-[534px]
   sm:h-[534px]
   bg-gradient-to-tr
-  from-blue-600
-  to-sky-500
+  from-[#4282f1cc]
+  to-[#4282f183]
   sm:rounded-full
   sm:blur-[50px]
   sm:-right-44
@@ -75,10 +75,10 @@ export const TitleDecoration = tw.span`
   mx-auto
   px-2
   border-l-[3px]
-  border-[#ffffff]
+  border-sw-blue
   bg-gradient-to-r
-  from-[#42c2f1]
-  to-[#4282f151]
+  from-[#4282f180]
+  to-[#4282f100]
   my-4
   animate-pulse
 `;
@@ -101,7 +101,6 @@ export const InputInit = tw.form`
   pr-1.5
   py-1.5
   mt-10
-  mb-16
   border
   border-white/10
 `;
@@ -118,17 +117,20 @@ export const Input = tw.input`
 
 export const Send = tw.button`
   bg-gradient-to-r
-  from-[#4282F1]
-  to-[#4282f151]
+  from-sw-blue/80
+  to-sw-blue-medium/80
+  border
+  border-sw-blue
   px-3
   my-1.5
   h-full
   grid
   place-items-center
   rounded-xl
-  hover:from-[#0041b0]
-  hover:to-[#2e60b651]
+  hover:from-sw-blue
+  hover:to-sw-blue-medium
   transition-all
+  group
 `;
 
 export const Comments = tw.div`

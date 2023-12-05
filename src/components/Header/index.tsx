@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
           <C.Status>{status ? "Digitando...": "Online"}</C.Status>
         </div>
       </C.Head>
-      <div className="absolute right-3 top-5">
+      <div className="absolute right-3 md:right-9 top-5">
         {Menu}
       </div>
     </C.Header>

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import tw from "tailwind-styled-components";
 
 export const Container = tw.section`
-  bg-black
   h-screen
   flex
   flex-col
@@ -15,8 +14,7 @@ export const Container = tw.section`
 export const Loading = tw(motion.div)`
   w-36
   h-36
-  bg-gradient-to-r
-  from-sky-500 to-cyan-500
+  bg-sw-blue
   rounded-full
   grid
   place-items-center
@@ -47,7 +45,7 @@ export const Text = tw.p`
 `;
 
 export const TextSuccess = tw.p`
-  text-sky-500
+  text-sw-blue
   font-semibold
   animate-pulse
 `;

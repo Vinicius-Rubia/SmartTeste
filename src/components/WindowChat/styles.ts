@@ -3,14 +3,17 @@ import tw from "tailwind-styled-components";
 export const Container = tw.section`
   flex
   flex-col
-  bg-[#2F2F2F]
-  mt-3.5
-  rounded-md
+  bg-[#181719]
+  mt-7
+  rounded-2xl
   flex-1
-  border-2
+  border
   border-[#464646]
-  p-2.5
+  md:p-7
+  p-3
   gap-4
   overflow-auto
   sm:mx-3
+  md:mx-9
+  mx-3
 `;

@@ -6,6 +6,7 @@ import * as C from "./styles";
 const Loading: React.FC = () => {
   const [loading, setLoading] = useState<number>(1);
   const navigate = useNavigate();
+  const angle = loading * 3.6;
 
   useEffect(() => {
     if (loading <= 99) {
@@ -21,7 +22,7 @@ const Loading: React.FC = () => {
   }, [loading]);
 
   return (
-    <C.Container>
+    <C.Container style={{ background: `conic-gradient(from ${angle}deg at 50% 50%, #27242C 0deg, #181719 360deg)`}}>
       <>
         <C.Loading>
           <C.Border>

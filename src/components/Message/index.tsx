@@ -28,7 +28,7 @@ export const Message: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <C.Message className="bg-black/20 mr-auto rounded-tr-md rounded-tl-none">
+          <C.Message className="bg-sw-blue-medium mr-auto rounded-tr-md rounded-tl-none">
             {message.message}
           </C.Message>
           <C.Hour className="mr-auto ml-1">

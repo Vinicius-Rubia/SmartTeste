@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { IoMdSend } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { Header, WindowChat } from "../../components";
@@ -7,25 +8,31 @@ import { images } from "../../utils/images";
 import transition from "../../utils/transition";
 import * as C from "./styles";
 
+interface InitChat {
+  message: string;
+}
+
 const Chat: React.FC = () => {
   const dispatch = useDispatch();
 
   const [countdown, setCountdown] = useState(20);
-  const [message, setMessage] = useState<string>("");
   const [isInputDisabled, setIsInputDisabled] = useState(false);
+  const [focusForm, setFocusForm] = useState<boolean>(false);
+  const [characters, setCharacters] = useState<number>(100);
   const maxCharacters = 100;
-  const numberOfCaracters = maxCharacters - message.length;
 
-  const handleMessage = (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm<InitChat>();
 
-    newValue.length <= maxCharacters && setMessage(newValue);
-  };
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<InitChat> = async ({ message }) => {
     setIsInputDisabled(true);
     setCountdown(20);
+    setCharacters(100);
+    setFocusForm(false);
 
     // openNotification({position: "top", type: "info", title: "Resulado: Get Debts", description: `{
     //   "customerId": "12345678902",
@@ -38,7 +45,7 @@ const Chat: React.FC = () => {
     // }`});
 
     dispatch(setMessages({ author: "user", message: message }));
-    setMessage("");
+    setValue("message", "");
 
     dispatch(setStatusResponse(true));
 
@@ -77,30 +84,35 @@ const Chat: React.FC = () => {
 
           <WindowChat />
 
-          <C.InputInit onSubmit={handleSubmit}>
-            <C.Input
-              disabled={isInputDisabled}
-              type="text"
-              maxLength={100}
-              placeholder={
-                isInputDisabled
-                  ? `Aguarde a IA terminar de responder... ${
-                      countdown > 0 && `Aguarde ${countdown} segundos`
-                    }`
-                  : "Digite sua mensagem"
-              }
-              value={message}
-              onChange={handleMessage}
-            />
-            <span className="pl-2">{numberOfCaracters}/100</span>
-            <C.Send
-              disabled={message === ""}
-              className="disabled:cursor-not-allowed"
-              onClick={handleSubmit}
-            >
-              <IoMdSend />
-            </C.Send>
-          </C.InputInit>
+          <div>
+            <C.InputInit onFocus={() => setFocusForm(true)} onBlur={() => setFocusForm(false)} className={`${focusForm && !isInputDisabled && "border-sw-blue"} ${!isInputDisabled && "hover:border-sw-blue"}`} onSubmit={handleSubmit(onSubmit)}>
+              <C.Input
+                disabled={isInputDisabled}
+                type="text"
+                maxLength={maxCharacters}
+                placeholder={isInputDisabled ? `${countdown > 0 && `Aguarde ${countdown} segundos para continuar`}` : "Digite sua mensagem"}
+                {...register("message", {
+                  required: "Mensagem é necessária",
+                  onChange(event) {
+                    const newValue = event.target.value;
+
+                    const numberOfCaracters = maxCharacters - newValue.length;
+
+                    newValue.length <= maxCharacters && setCharacters(numberOfCaracters);
+                  },
+                })}
+              />
+              <span className="pl-2">{characters}/100</span>
+              <C.Send
+                disabled={isInputDisabled}
+                className="disabled:cursor-not-allowed"
+                onClick={handleSubmit(onSubmit)}
+              >
+                <IoMdSend className="text-white group-hover:scale-125 group-hover:rotate-[360deg] duration-300 transition-all" />
+              </C.Send>
+            </C.InputInit>
+            <span className="text-red-500 text-sm flex mt-1 ml-3 md:ml-9">{errors.message?.message}</span>
+          </div>
         </C.Content>
       </C.Layout>
 

@@ -4,8 +4,6 @@ export const Message = tw.p`
   flex
   items-center
   bg-gradient-to-b
-  border
-  border-[#464646]
   text-[#E5E5E5]
   py-2
   px-3

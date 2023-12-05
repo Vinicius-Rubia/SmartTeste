@@ -19,8 +19,8 @@ export const RoundedBlur = tw.span`
   sm:w-[534px]
   sm:h-[534px]
   bg-gradient-to-tr
-  from-blue-600
-  to-sky-500
+  from-[#4282f1cc]
+  to-[#4282f183]
   sm:rounded-full
   sm:blur-[50px]
   sm:-right-44
@@ -33,7 +33,7 @@ export const Layout = tw.div`
   text-[#E5E5E5]
   m-3
   md:m-9
-  bg-white/10
+  bg-[#ffffff1a]
   rounded-2xl
   border
   border-white/10
@@ -56,7 +56,7 @@ export const Content = tw.div`
 
 export const InputInit = tw.form`
   h-14
-  bg-[#252525]
+  bg-[#181719]
   flex
   items-center
   gap-2
@@ -66,9 +66,9 @@ export const InputInit = tw.form`
   mt-3.5
   border
   md:mt-10
-  md:mb-8
-  md:mx-3
-  md:rounded-lg
+  md:mx-9
+  mx-3
+  rounded-lg
   border-white/10
 `;
 
@@ -84,16 +84,18 @@ export const Input = tw.input`
 
 export const Send = tw.button`
   bg-gradient-to-r
-  from-[#4282F1]
-  to-[#4282f151]
+  from-sw-blue/80
+  to-sw-blue-medium/80
+  border
+  border-sw-blue
   px-3
   my-1.5
   h-full
   grid
   place-items-center
   rounded-xl
-  hover:from-[#0041b0]
-  hover:to-[#2e60b651]
+  hover:from-sw-blue
+  hover:to-sw-blue-medium
 `;
 
 export const WaveOne = tw.img`

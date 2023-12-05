@@ -21,8 +21,8 @@ export const RoundedBlur = tw.span`
   sm:w-[534px]
   sm:h-[534px]
   bg-gradient-to-tr
-  from-blue-600
-  to-sky-500
+  from-[#4282f1cc]
+  to-[#4282f183]
   sm:rounded-full
   sm:blur-[50px]
   sm:-right-44
@@ -35,7 +35,7 @@ export const Layout = tw.div`
   text-[#E5E5E5]
   m-3
   md:m-9
-  bg-white/10
+  bg-[#ffffff1a]
   rounded-2xl
   border
   border-white/10
@@ -64,6 +64,7 @@ export const Title = tw.h1`
   sm:text-start
   sm:mt-0
   sm:ml-3
+  lg:ml-9
 `;
 
 export const TitleDecoration = tw.span`
@@ -75,10 +76,10 @@ export const TitleDecoration = tw.span`
   mx-auto
   px-2
   border-l-[3px]
-  border-white
+  border-sw-blue
   bg-gradient-to-r
-  from-[#42c2f1]
-  to-[#4282f151]
+  from-[#4282f180]
+  to-[#4282f100]
   my-4
   animate-pulse
 `;
@@ -171,7 +172,7 @@ export const ViewContent = tw.div`
   bg-[#23262F]
   rounded-2xl
   p-3
-  shadow-[0px_-15px_0_0_rgb(40,75,150)]
+  shadow-[0px_-15px_0_0_rgba(66,130,241,0.50)]
   mx-auto
   flex
   flex-col
@@ -182,7 +183,7 @@ export const ViewContent = tw.div`
   mb-20
 
   lg:order-first
-  lg:shadow-[-25px_-20px_0_0_rgb(40,75,150)]
+  lg:shadow-[-25px_-20px_0_0_rgba(66,130,241,0.50)]
   lg:ml-9
   lg:mt-0
   lg:w-3/4
@@ -192,10 +193,10 @@ export const ViewContent = tw.div`
 
 export const BtnSaveContext = tw.button`
   bg-gradient-to-r
-  from-sky-700
-  to-sky-900
-  hover:from-sky-600
-  hover:to-sky-800
+  from-sw-blue/80
+  to-sw-blue-medium/80
+  hover:from-sw-blue
+  hover:to-sw-blue-medium
   h-14
   rounded-[10px]
   uppercase
